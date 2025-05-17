@@ -66,6 +66,8 @@ plt.show()
 ```
 
 
-# Result
+# Output
 ![image](https://github.com/user-attachments/assets/7cac974e-5c10-4c2a-a9b7-a8c958327e86)
 
+# Result
+Thus the program is implemented and Executed Successfully
