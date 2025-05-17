@@ -20,10 +20,52 @@ If y represents the dependent variable and x the independent variable, this rela
 ![image](https://user-images.githubusercontent.com/104613195/168225866-ac8f6610-bdc3-4ac2-a24e-2b24ba08e189.png)
 
 # Program :
+```
+import numpy as np
+import matplotlib.pyplot as plt
 
-![image](https://github.com/ramjan1729/Correlation_Regression/assets/103921593/9eb48cbf-8ca3-4cd9-8440-ff45fd98333e)
+# Getting Inputs
+print("Enter the values of X separated by space")
+X = np.array([int(i) for i in input().split()])
+
+print("Enter the values of Y separated by space")
+Y = np.array([int(i) for i in input().split()])
+
+N = len(X)
+print(X, Y, N, sep='\n')
+
+# Calculating Sums and Means
+SumX = np.sum(X)
+SumY = np.sum(Y)
+SumX2 = np.sum(X**2)
+SumY2 = np.sum(Y**2)
+SumXY = np.sum(X * Y)
+
+MeanX = SumX / N
+MeanY = SumY / N
+
+# Calculating Regression Coefficient
+num = (N * SumXY) - (SumX * SumY)
+den = (N * SumX2) - (SumX**2)
+RegressionCoef = num / den
+
+# Regression Line Equation
+print(f"The Regression Y on X is Y = {RegressionCoef:.3f} ( X - {MeanX:.3f}) + {MeanY:.3f}")
+
+# Define Regression Function
+def Regression(x):
+    return MeanY + (RegressionCoef * (x - MeanX))
+
+# Plotting the Graph
+plt.scatter(X, Y)
+plt.plot(X, Regression(X))
+plt.xlabel("X-Data")
+plt.ylabel("Y-Data")
+plt.legend(['Data points', 'Regression Line'])
+plt.show()
+```
 
 
 # Result
+![image](https://github.com/user-attachments/assets/7cac974e-5c10-4c2a-a9b7-a8c958327e86)
 
-# Output 
